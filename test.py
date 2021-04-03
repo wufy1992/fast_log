@@ -17,7 +17,7 @@ def calc_time(func):
 @calc_time
 def test_performance(fast_log):
     for i in range(100000):
-        fast_log.add_log('test log write performance')
+        fast_log.add_log(fast_log.INFO, 'test log write performance')
     while fast_log.is_writing:
         time.sleep(0.01)
 
@@ -26,3 +26,4 @@ if __name__ == "__main__":
     test_fast_log = FastLog()
     # test_performance calc time: 2.0698201656341553
     test_performance(test_fast_log)
+    test_fast_log.clear_old_log(3, 100)
